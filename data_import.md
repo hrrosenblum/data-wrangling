@@ -204,3 +204,9 @@ litters_base = read_csv("./data/FAS_litters.csv")
 ``` r
 ## want to only use read_csv!
 ```
+
+## Exporting data
+
+``` r
+write_csv(mlb_df, "./data/mlb_subtable.csv")
+```
