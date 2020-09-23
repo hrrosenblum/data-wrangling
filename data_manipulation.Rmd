@@ -1,0 +1,37 @@
+---
+title: "data_manipulation"
+output: github_document
+---
+
+```{r setup}
+library (tidyverse)
+```
+
+Load in the FAS liters data 
+
+```{r load data}
+litters_df = read_csv("./data/FAS_litters.csv")
+litters_df = janitor::clean_names(litters_df)
+```
+
+
+#select
+
+```{r select}
+select(litters_df, litter_number:gd_of_birth) #selects a range of colomns
+
+select(litters_df, -litter_number) #removes columns
+```
+
+renaming with select
+```{ r renaming select}
+select(litters_df, GRP = group)
+```
+
+```{r select helpers}
+select(litters_df, starts_with("gd"))
+
+select(litters_df, litter_number, everything ()) #moves litter number to begnning. Also can use relocate.
+
+relocate(litters_df, litter_number)
+```
