@@ -25,3 +25,12 @@ Printing in the console
 litters_df
 skimr::skim(litters_df) #gives information about the variables 
 ```
+
+## options to read_csv
+check out ?read_csv for more options/information
+
+```{r read_csv}
+
+litters_df = read_csv("./data/FAS_litters.csv", skip = 10, col_names = FALSE, na = c("", ".", "NA", 999))
+
+```
