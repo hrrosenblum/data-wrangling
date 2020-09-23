@@ -56,9 +56,15 @@ filter(litters_df, group %in% c("Con7", "Mod8"))
 
 ## mutate
 
-```{r mutat}
+```{r mutate}
 mutate(litters_df, 
        wt_gain = gd18_weight - gd0_weight, #creates new variable
        group = str_to_lower(group)) #modifies existing variable
 ```
 
+
+## arrange
+puts things in order
+```{r arrange}
+arrange(litters_df, pups_born_alive)
+```
