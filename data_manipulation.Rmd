@@ -5,6 +5,7 @@ output: github_document
 
 ```{r setup}
 library (tidyverse)
+library (dplyr)
 ```
 
 Load in the FAS liters data 
@@ -15,7 +16,7 @@ litters_df = janitor::clean_names(litters_df)
 ```
 
 
-#select
+#select picks columns
 
 ```{r select}
 select(litters_df, litter_number:gd_of_birth) #selects a range of colomns
@@ -35,3 +36,29 @@ select(litters_df, litter_number, everything ()) #moves litter number to begnnin
 
 relocate(litters_df, litter_number)
 ```
+
+#filter selects rows
+```{ r filter}
+filter(litters_df, gd0_weight < 22) #use logical operators to slect data
+
+filter(litters_df, gd0_weight >= 22)
+
+filter(litters_df, gd_of_birth == 20) #test for equality
+
+filter(litters_df, !(gd_of_birth == 20)) #not equal to
+
+filter(litters_df, gd0_weight >= 22, gd_of_birth == 20)
+
+filter(litters_df, group == "Con7")
+
+filter(litters_df, group %in% c("Con7", "Mod8"))
+```
+
+## mutate
+
+```{r mutat}
+mutate(litters_df, 
+       wt_gain = gd18_weight - gd0_weight, #creates new variable
+       group = str_to_lower(group)) #modifies existing variable
+```
+
